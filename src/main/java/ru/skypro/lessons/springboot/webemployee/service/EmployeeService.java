@@ -10,5 +10,10 @@ public interface EmployeeService {
     Employee findEmployeeWithMinSalary();
     Integer salarySum();
     List<Employee> aboveAverageSalary();
+    List<Employee> create(List<Employee> employeeList);
+    void update(int id, Employee employee);
+    Employee get(int id);
+    void delete(int id);
+    List<Employee> getEmployeeWithSalaryHigherThan(double salary);
 
 }

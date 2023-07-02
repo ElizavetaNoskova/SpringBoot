@@ -9,3 +9,35 @@ GET http://localhost:8080/employee/salary/max
 
 ### Получение всех сотрудников, зарплата которых больше средней
 GET http://localhost:8080/employee/high-salary
+### Создание сотрудников
+POST http://localhost:8080/employee
+Content-Type: application/json
+
+[
+  {
+    "name": "Роман",
+    "salary": 56000
+  },
+  {
+    "name": "Александр",
+    "salary": 80000
+  }
+]
+
+### Обновление сотрудника
+PUT http://localhost:8080/employee/11
+Content-Type: application/json
+
+{
+  "name": "Роман",
+  "salary": 60000
+}
+
+### Получить сотрудника по id
+GET http://localhost:8080/employee/4
+
+### Удалить сотрудника по id
+DELETE http://localhost:8080/employee/4
+
+### Получение сотрудников с зп выше чем
+GET http://localhost:8080/employee//salaryHigherThan?salary=1000
