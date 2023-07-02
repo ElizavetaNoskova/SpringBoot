@@ -1,8 +1,6 @@
 package ru.skypro.lessons.springboot.webemployee.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.skypro.lessons.springboot.webemployee.pojo.Employee;
 import ru.skypro.lessons.springboot.webemployee.service.EmployeeService;
 
@@ -36,5 +34,30 @@ public class EmployeeController {
     @GetMapping("/high-salary")
     public List<Employee> highSalary() {
         return employeeService.aboveAverageSalary();
+    }
+
+    @PostMapping
+    public List<Employee> create(@RequestBody List<Employee> employeeList){
+        return employeeService.create(employeeList);
+    }
+
+    @PutMapping("/{id}")
+    public void update(@PathVariable int id, @RequestBody Employee employee){
+        employeeService.update(id, employee);
+    }
+
+    @GetMapping("/{id}")
+    public Employee get(@PathVariable int id){
+        return employeeService.get(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable int id){
+        employeeService.delete(id);
+    }
+
+    @GetMapping("/salaryHigherThan")
+    public List<Employee> getEmployeeWithSalaryHigherThan(@RequestParam int salary){
+        return employeeService.getEmployeeWithSalaryHigherThan(salary);
     }
 }
